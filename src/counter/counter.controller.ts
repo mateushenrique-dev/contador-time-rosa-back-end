@@ -11,8 +11,8 @@ export default class CounterController {
   @Get('/')
   async getDaysPassed() {
     const lastDate = await this.counterRepository.getLastDate();
-    const today = await this.counterRepository.getActualDate();
-    const diferenceBetweenDates = (today - lastDate) - 1;
+    const today = this.counterRepository.getActualDate();
+    const diferenceBetweenDates = (today - lastDate);
     const dayInMilisseconds = (1000 * 60 * 60 * 24);
 
     const daysPassed = (diferenceBetweenDates / dayInMilisseconds);
