@@ -36,10 +36,7 @@ export default class CounterRepository {
   }
 
   getActualDate() {
-    const date = new Date();
-    date.setUTCHours(date.getUTCHours() - 3);
-
-    return this.hoursToZero(date).getTime();
+    return this.hoursToZero(new Date()).getTime();
   }
 
   private hoursToZero(date: Date) {
