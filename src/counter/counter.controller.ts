@@ -26,5 +26,9 @@ export default class CounterController {
   async setNewDate(@Body() { date }: CreateCounterDateDTO) {
     const counterDateEntity = new CounterDateEntity(date);
     await this.counterRepository.updateLastDate(counterDateEntity);
+    
+    return {
+      date
+    }
   }
 }
